@@ -1,0 +1,32 @@
+<%= link_to 'back index', testrun_apps_path %>
+<div class="col-md-12">
+  <table class="table table-striped">
+    <%= render :partial => 'form'%>
+
+
+    <tbody>
+    <tr>
+      <%= render :partial => 'apps' , :locals => { :app => @app } %>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<%= simple_form_for @app,
+                    :url=> url_for( :action => 'update' , :controller =>  'testrun_apps'),
+                    :method=> 'patch' do |f| %>
+
+
+
+    <%= f.input :Tester  , :label => "覆測人"%>
+    <%= f.input :TesterResult  , :label => "覆測結果"%>
+    <%= f.input :TesterComment  ,as: :text , :label => "覆測評論" ,:input_html => { :rows => 7 , :style => 'width: 100%'}%>
+
+    <%= f.button :submit %>
+<% end %>
+
+
+
+
+
+

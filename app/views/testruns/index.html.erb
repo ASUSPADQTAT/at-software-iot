@@ -1,0 +1,47 @@
+
+<div class="col-md-12">
+	<label>
+		<h2>Summary Report <span style="font-size: 16pt" class="badge"><%= @testruns.length %></span></h2>
+	</label>
+</div>
+
+
+<div class="col-md-12">
+	<table class="table table-striped">
+		<thread>
+			<tr>
+				<th colspan="13">
+					統計彙總
+				</th>
+			</tr>
+		</thread>
+           <%=  render :partial  => 'form' %>
+		<tbody>
+
+
+            <% @testruns.each do |testrun| %>
+			<tr>
+
+              <td><%= link_to testrun.TestRun_Time, testrun_apps_path(testrun) %></td>
+				<td><%= testrun.Product%></td>
+				<td><%= testrun.SerialNumber%></td>
+                <td><%= testrun.SKU%></td>
+				<td><%= testrun.DeviceVersion%></td>
+				<td><%= testrun.AndroidVersion%></td>
+
+              <td><%= testrun.TestRun_TotalAppsCount%></td>
+              <td><%= testrun.TestRun_TotalFailCount%></td>
+              <td><%= testrun.TestRun_InstallFailCount%></td>
+              <td><%= testrun.TestRun_LaunchRunningRail%></td>
+              <td><%= testrun.TestRun_MonkeyRunningFail%></td>
+              <td><%= testrun.TestRun_PassRate%></td>
+			 	<td><%= link_to 'Delete' , testrun_path(testrun), :method => :delete %></td>
+			 </tr>
+			<% end %>
+
+			
+		</tbody>
+	</table>
+</div>
+
+

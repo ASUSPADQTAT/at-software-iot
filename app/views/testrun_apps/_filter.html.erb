@@ -1,0 +1,89 @@
+
+<thread>
+  <tr >
+    <th>
+
+    </th>
+    <th>
+
+      <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+          篩選 <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <li><%= link_to 'Application', testrun_apps_path(:AppClass => :Application,:apps => @apps ) %></li>
+          <li><%= link_to 'Game'       , testrun_apps_path(:AppClass => :Game,:apps => @apps) %></li>
+
+
+        </ul>
+      </div>
+    </th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th>
+      <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+          篩選 <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <li><%= link_to 'armeabi-v7a', testrun_apps_path(:AppNativeCode => 'armeabi-v7a',:apps => @apps , :testrun => @testrun) %></li>
+          <li><%= link_to 'armeabi', testrun_apps_path(:AppNativeCode => 'armeabi',:apps => @apps , :testrun => @testrun) %></li>
+          <li><%= link_to 'x86', testrun_apps_path(:AppNativeCode => 'x86',:apps => @apps , :testrun => @testrun) %></li>
+
+
+        </ul>
+      </div>
+    </th>
+    <th></th>
+    <th>
+      <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+          篩選 <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <li><%= link_to 'All', testrun_apps_path(:ApkResult => :All,:apps => @apps , :testrun => @testrun) %></li>
+          <li><%= link_to 'Pass', testrun_apps_path(:ApkResult => :Pass,:apps => @apps , :testrun => @testrun) %></li>
+          <li><%= link_to 'Fail', testrun_apps_path(:ApkResult => :Fail,:apps => @apps , :testrun => @testrun) %></li>
+
+        </ul>
+      </div>
+    </th>
+    <th>
+      <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+          篩選 <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <li><%= link_to 'Pass', testrun_apps_path(:AppInstallResult => :Pass,:apps => @apps) %></li>
+          <li><%= link_to 'Fail', testrun_apps_path(:AppInstallResult => :Fail,:apps => @apps) %></li>
+
+        </ul>
+      </div>
+    </th>
+
+    <th>
+
+
+    </th>
+
+
+    <th>
+      <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+          篩選 <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <li><%= link_to 'Pass', testrun_apps_path(:AppLaunchResult => :Pass,:apps => @apps) %></li>
+          <li><%= link_to 'Fail', testrun_apps_path(:AppLaunchResult => :Fail,:apps => @apps) %></li>
+
+        </ul>
+      </div>
+    </th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+</thread>
