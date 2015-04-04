@@ -59,7 +59,9 @@ class TestrunAppsController < ApplicationController
       @app = @testrun.apps.find(params[:id])
     	if @app.update(:Tester => params.require(:app)[:Tester],
                      :TesterResult => params.require(:app)[:TesterResult],
-                     :TesterComment => params.require(:app)[:TesterComment])
+                     :TesterComment => params.require(:app)[:TesterComment],
+                     :TTBugID => params.require(:app)[:TTBugID],
+                     :BugZillaBugID => params.require(:app)[:BugZillaBugID])
     		redirect_to testrun_apps_url (@testrun)
     	else
     		render :action => :edit

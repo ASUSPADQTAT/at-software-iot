@@ -3,6 +3,12 @@ Rails.application.routes.draw do
     resources :apps, :controller =>'testrun_apps'
   end
 
+
+  #resources :querys
+  get "querys" => "querys#index"
+  match ':controller(/:action(/:id(.:format)))', :via => :all
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -119,7 +119,7 @@ class TestrunsController < ApplicationController
 	def destroy
 		@testrun = Testrun.find(params[:id])
 
-    @testrun.apps.delete_all
+    @testrun.apps.destroy_all
     @testrun.destroy
 		flash[:alert] = "event was successfully deleted"
 		redirect_to testruns_url
