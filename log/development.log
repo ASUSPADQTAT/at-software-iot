@@ -25809,3 +25809,14 @@ Completed 200 OK in 230ms (Views: 227.2ms | ActiveRecord: 0.7ms)
 Processing by QuerysController#index as HTML
   Rendered querys/index.html.erb within layouts/application (70.0ms)
 Completed 200 OK in 251ms (Views: 248.0ms | ActiveRecord: 0.9ms)
+Processing by TestrunsController#index as HTML
+  Rendered testruns/_form.html.erb (0.1ms)
+  Rendered testruns/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 234ms (Views: 232.8ms | ActiveRecord: 0.3ms)
+Processing by TestrunsController#new as HTML
+Redirected to http://localhost:3000/testruns
+Completed 302 Found in 122ms (ActiveRecord: 19.5ms)
+Processing by TestrunsController#index as HTML
+  Rendered testruns/_form.html.erb (0.0ms)
+  Rendered testruns/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 257ms (Views: 255.9ms | ActiveRecord: 0.2ms)
