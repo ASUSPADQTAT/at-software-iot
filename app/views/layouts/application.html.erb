@@ -10,9 +10,10 @@
       <div class="col-md-12">
         <nav class="navbar navbar-inverse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">測試總頁</a></li>
-            <li><a href="#">測試結果查詢</a></li>
-            <li><a href="#">Dashboard</a></li>
+
+            <li class="active"><%=  link_to '測試總頁' , testruns_path %></li>
+            <li><%=  link_to '測試結果查詢' , :controller=> 'querys' ,:action=> 'index' %></li>
+            <li><%=  link_to '儀表板' , :controller=> 'boards' ,:action=> 'hello' %></li>
           </ul>
         </nav>
         

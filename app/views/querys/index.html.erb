@@ -1,36 +1,40 @@
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-  <tr>
-    <td>包裝名稱</td>
-    <td><input type="text" class="form-control" placeholder="Package Name"></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>專案</td>
-    <td><input type="text" class="form-control" placeholder="Project"></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>APK類別</td>
-    <td><input type="text" class="form-control" placeholder="Class"></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>測試結果</td>
-    <td><input type="text" class="form-control" placeholder="Apk Result"></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>複測結果</td>
-    <td><input type="text" class="form-control" placeholder="Manual Result"></td>
-    <td></td>
-  </tr>
+<div class="box-content">
+  <h4 class="page-header">Basic select</h4>
+  <div class="row form-group">
 
-  <tr>
-    <td colspan="3"><button type="button" class="btn btn-default">Query</button></td>
-  </tr>
-</table>
+    <div class="col-sm-2">包裝名稱</div>
+    <div class="col-sm-2">專案</div>
+    <div class="col-sm-2">APK類別</div>
+    <div class="col-sm-2">測試結果</div>
+    <div class="col-sm-2">複測結果</div>
+    <div class="col-sm-2"></div>
+
+  </div>
+
+  <div class="row form-group">
+
+  <%= form_for @app, :url => { :controller => 'querys', :action => 'show' } do |f| %>
+
+        <div class="col-sm-2">
+            <%=f.select(:AppPackageName, @pkg.each { |value| [value] } ,{},{ :class => 'form-control' })%>
+        </div>
+        <div class="col-sm-2">
+          <%=f.select(:AppName, @project.each { |value| [value] },{},{ :class => 'form-control' })%>
+        </div>
+
+        <div class="col-sm-2"><%=f.select(:AppClass, @class.each { |value| [value] },{},{ :class => 'form-control' })%></div>
+        <div class="col-sm-2"><%=f.select(:ApkStatus, @result.each { |value| [value] },{},{ :class => 'form-control' })%></div>
+        <div class="col-sm-2"><%=f.select(:Tester, @mautal_result.each { |value| [value] },{},{ :class => 'form-control' })%></div>
+
+        <div class="col-sm-12">
+          <div class="col-sm-1">
+            <%= f.submit "Query" ,{:class=> 'form-control'}%>
+          </div>
+        </div>
+  <% end %>
+  </div>
+
+</div>
+
+
+

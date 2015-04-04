@@ -1,22 +1,17 @@
-<td><%= app.AppNumber %></td>
+<td><%= app.AppNumber %> <%= link_to image_tag("gp4.png"  , :width => 20 , :height => 20) , app.AppLink %></td>
 <td>
   <span class="label label-warning"><%= app.AppClass %></span>
-</td>
-<td>
   <span class="label label-info"> <%= app.AppCategory%></span>
 </td>
+
 <td>
   <div><%= app.AppName %></div>
   <div class="label label-success"><%= app.AppPackageName %></div>
 </td>
 
 
-
-
-
 <td><%= app.AppVersion %></td>
 <td><%= app.AppNativeCode %></td>
-<td><%= app.ApkStatus %></td>
 <td><%= app.ApkResult %></td>
 <td><%= app.AppInstallResult%></td>
 <td><%= app.AppLaunchResult %></td>

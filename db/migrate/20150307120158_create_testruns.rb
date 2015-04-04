@@ -13,7 +13,7 @@ class CreateTestruns < ActiveRecord::Migration
       t.string :TestRun_TotalAppsCount
       t.string :TestRun_TotalFailCount
       t.string :TestRun_InstallFailCount
-      t.string :TestRun_LaunchRunningRail
+      t.string :TestRun_LaunchRunningFail
       t.string :TestRun_MonkeyRunningFail
       t.string :TestRun_PassRate
 

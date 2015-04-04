@@ -24,11 +24,12 @@ class TestrunsController < ApplicationController
     tr.TestRun_TotalAppsCount =data_hash["TestRun_TotalAppsCount"]
     tr.TestRun_TotalFailCount =data_hash["TestRun_TotalFailCount"]
     tr.TestRun_InstallFailCount =data_hash["TestRun_InstallFailCount"]
-    tr.TestRun_LaunchRunningRail =data_hash["TestRun_LaunchRunningFail"]
+    tr.TestRun_LaunchRunningFail =data_hash["TestRun_LaunchRunningFail"]
     tr.TestRun_MonkeyRunningFail =data_hash["TestRun_MonkeyRunningFail"]
     tr.TestRun_PassRate  =data_hash["TestRun_PassRate"]
     data_hash["TestRun_Apps"].each_with_index { |app,index|
       ap = App.new
+      ap.AppLink = app["AppLink"]
       ap.AppNumber = app["AppNumber"]
       ap.AppName = app["AppName"]
       ap.AppVersion =app["AppVersion"]
@@ -74,11 +75,12 @@ class TestrunsController < ApplicationController
     tr.TestRun_TotalAppsCount =params[:TestRun_TotalAppsCount]
     tr.TestRun_TotalFailCount =params[:TestRun_TotalFailCount]
     tr.TestRun_InstallFailCount =params[:TestRun_InstallFailCount]
-    tr.TestRun_LaunchRunningRail =params[:TestRun_LaunchRunningRail]
+    tr.TestRun_LaunchRunningFail =params[:TestRun_LaunchRunningRail]
     tr.TestRun_MonkeyRunningFail =params[:TestRun_MonkeyRunningFail]
     tr.TestRun_PassRate  =params[:TestRun_PassRate]
     params[:TestRun_Apps].each_with_index {|app, index|
 			ap = App.new
+      ap.AppLink = app[:AppLink]
 			ap.AppNumber = app[:AppNumber]
 			ap.AppName = app[:AppName]
 			ap.AppVersion =app[:AppVersion]

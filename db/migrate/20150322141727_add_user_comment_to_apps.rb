@@ -6,5 +6,6 @@ class AddUserCommentToApps < ActiveRecord::Migration
   	  	add_column :apps,:TesterComment ,:string
 
 
+
   end
 end

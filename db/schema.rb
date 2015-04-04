@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20150322141727) do
 
   create_table "apps", force: :cascade do |t|
     t.string   "AppNumber"
+    t.string   "AppLink"
     t.string   "AppName"
     t.string   "AppVersion"
     t.string   "AppSKU"
@@ -56,7 +57,7 @@ ActiveRecord::Schema.define(version: 20150322141727) do
     t.string   "TestRun_TotalAppsCount"
     t.string   "TestRun_TotalFailCount"
     t.string   "TestRun_InstallFailCount"
-    t.string   "TestRun_LaunchRunningRail"
+    t.string   "TestRun_LaunchRunningFail"
     t.string   "TestRun_MonkeyRunningFail"
     t.string   "TestRun_PassRate"
     t.datetime "created_at",                null: false

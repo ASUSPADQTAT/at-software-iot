@@ -1,15 +1,25 @@
-<%= link_to 'back index', testruns_path %>
-<div class="col-md-12">
+<div class="col-xs-12">
+  <%= link_to 'back index', testruns_path %>
+</div>
+
+<div class="col-xs-6">
 	<label>
 		<h2>TestRun Result <span style="font-size: 16pt" class="badge"><%= @apps.length %></span> </h2>
 
 	</label>
-</div>
 
-<div class="col-md-12">
+
+</div>
+<div class="col-xs-6">  <%= render :partial => 'summary' %></div>
+
+
+
+<div>
+
 	<table class="table table-striped">
+
       <!-- Filter -->
-      <%= render :partial => 'filter' %>
+
       <!-- Title -->
       <%= render :partial => 'form' %>
 
