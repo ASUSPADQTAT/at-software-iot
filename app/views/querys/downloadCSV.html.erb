@@ -1,0 +1,6 @@
+<% @apps.each do |app| %>
+    <tr>
+      <%= render :partial =>'apps', :locals => {:app=> app} %>
+
+    </tr>
+<% end %>

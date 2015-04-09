@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150322141727) do
+ActiveRecord::Schema.define(version: 20150406163226) do
 
   create_table "apps", force: :cascade do |t|
     t.string   "AppNumber"
@@ -42,6 +42,11 @@ ActiveRecord::Schema.define(version: 20150322141727) do
     t.string   "Tester"
     t.string   "TesterResult"
     t.string   "TesterComment"
+  end
+
+  create_table "queries", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "testruns", force: :cascade do |t|

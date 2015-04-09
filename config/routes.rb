@@ -1,13 +1,22 @@
 Rails.application.routes.draw do
   resources :testruns do
-    resources :apps, :controller =>'testrun_apps'
+    resources :apps, :controller =>'testrun_apps' do
+
+    end
   end
 
 
   #resources :querys
   get "querys" => "querys#index"
-  match ':controller(/:action(/:id(.:format)))', :via => :all
 
+  match ':controller(/:action(/:id(.:format)))', :via => :all
+  resources :querys do
+    collection do
+      get :downloadcsv
+      post :search
+
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

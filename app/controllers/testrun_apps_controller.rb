@@ -24,7 +24,15 @@ class TestrunAppsController < ApplicationController
 
         @apps = @testrun.apps.order(sort_by).page(params[:page]).per(100)
       end
+
+      respond_to do |format|
+        format.html {}
+        format.csv { render text: @apps.to_csv }
+      end
+
     end
+
+
 
 
     def show
@@ -38,7 +46,7 @@ class TestrunAppsController < ApplicationController
     end
 
 
-  def new
+    def new
     	@app = @testrun.apps.build
     end
 
@@ -74,6 +82,7 @@ class TestrunAppsController < ApplicationController
     	@app.destroy
     	redirect_to testrun_apps_url(@testrun)
     end
+
 
   	protected
   	def find_testrun
