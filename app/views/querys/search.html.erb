@@ -1,0 +1,67 @@
+<h1>Products</h1>
+
+<p>
+  Download:
+
+<div class="btn-group col-md-1 col-md-offset-5" role="group" aria-label="...">
+
+  <td><%= button_to 'download', downloadcsv_querys_path(:apps => @apps)  %></td>
+
+
+
+
+</div>
+
+</p>
+
+<%= render :partial => 'apps_summary'  ,:locals => { :apps => @apps} %>
+
+
+<div class="box-content">
+  <div class="row form-group">
+    <div class="col-sm-2">包裝名稱</div>
+    <div class="col-sm-2">APK類別</div>
+    <div class="col-sm-2">測試結果</div>
+    <div class="col-sm-2">複測結果</div>
+    <div class="col-sm-2"></div>
+
+  </div>
+  <div class="row form-group">
+
+    <%= form_tag search_querys_path, :method => :post,:multipart => true do %>
+        <div class="col-sm-2">
+          <%= select_tag "AppPackageName", options_for_select(@pkg,'') , { :class => 'form-control'}%>
+        </div>
+        <div class="col-sm-2">
+          <%= select_tag "AppClass", options_for_select(@class,'',) ,{ :class => 'form-control'}%>
+        </div>
+        <div class="col-sm-2">
+          <%= select_tag "ApkResult", options_for_select(@result,''), { :class => 'form-control'}%>
+        </div>
+        <div class="col-sm-2">
+          <%= select_tag "TesterResult", options_for_select(@manual_result,''), { :class => 'form-control'}%>
+        </div>
+        <%= submit_tag 'Query', {:class => 'btn btn-primary'} %>
+
+    <% end %>
+
+
+  </div>
+</div>
+
+<div>
+  <table class="table table-striped">
+    <!-- Title -->
+    <%= render :partial =>'form' %>
+
+    <tbody>
+    <% @apps.each do |app| %>
+        <tr>
+          <%= render :partial =>'apps', :locals => {:app=> app} %>
+
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
