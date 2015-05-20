@@ -1,35 +1,29 @@
-<div class="col-md-12">
-  <%= link_to 'back index', testruns_path %>
-</div>
 
 
-<div class="row col-md-12">
-  <div class="col-m-6">
-    <label>
+<div class="page-header">
+
+  <div class="row">
+    <div class="col-md-10">
       <h2>TestRun Result <span style="font-size: 16pt" class="badge"><%= @apps.length %></span> </h2>
-
-    </label>
-
-
+    </div>
+    <div class="col-md-2">
+      <h2><%= button_to "Download csv", testrun_apps_path(format: "csv")   ,:class => "btn btn-warning",:method => :get%></h2>
+    </div>
   </div>
-
-
-  <div class="btn-group col-md-1 col-md-offset-5" role="group" aria-label="...">
-    <%= button_to "Download csv", testrun_apps_path(format: "csv")   ,:class => "btn btn-warning",:method => :get%>
-  </div>
-
-
 </div>
 
-<div class="col-xs-6">  <%= render :partial => 'summary' %></div>
+<h4 class="page-header">Σ SUMMARY</h4>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
 
+      <%= render :partial => 'summary' %>
 
+  </div>
+</nav>
 
 <div>
 
 	<table class="table table-striped">
-
-      <!-- Filter -->
 
       <!-- Title -->
       <%= render :partial => 'form' %>
@@ -39,10 +33,7 @@
         <tr>
           <%= render :partial => 'apps'  ,:locals => { :app => app} %>
 
-          <td>
-            <div><%= link_to 'Launch Log', testrun_app_path(@testrun, app) %></div>
-            <div><%= link_to 'Monkey Log', testrun_app_path(@testrun, app) %></div>
-          </td>
+          
           <td>
 
             <!-- Split button -->
@@ -72,3 +63,6 @@
 </div>
 <%= paginate @apps %>
 
+<div class="col-md-12">
+  <%= link_to 'back index', testruns_path %>
+</div>

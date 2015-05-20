@@ -1,18 +1,4 @@
 
-
-<div class="col-md-12">
-  <%= debug(@apps) %>
-  <%= debug(@sql_array) %>
-
-</div>
-
-
-<div class="btn-group col-md-1 col-md-offset-10" role="group" aria-label="...">
-  <%= button_to "Download as Html", downloadcsv_querys_path(format: "html",:apps => @apps , :sql_array =>@sql_array) , :class => "button", :method => :post%>
-  <%= button_to "Download as CSV", downloadcsv_querys_path(format: "csv", :apps => @apps , :sql_array =>@sql_array) , :class => "button", :method => :post%>
-  <%= button_to "Download Excel" , downloadcsv_querys_path(format: "xls", :apps => @apps , :sql_array =>@sql_array) , :class => "button", :method => :post%>
-</div>
-
 <%= render :partial => 'apps_summary'  ,:locals => { :apps => @apps} %>
 
 
@@ -64,5 +50,9 @@
   </table>
 </div>
 
+<div class="btn-group col-md-1 col-md-offset-10" role="group" aria-label="...">
+
+  <%= link_to "Download as CSV", {:controller => "testrun_apps", :action => "downloadcsv", "apps" => @apps ,:format => "csv"}%>
 
 
+</div>

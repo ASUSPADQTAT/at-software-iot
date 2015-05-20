@@ -7,18 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-      <div class="col-md-12">
-        <nav class="navbar navbar-inverse">
+
+        <nav class="navbar navbar-inverse navbar-static-top">
           <ul class="nav navbar-nav">
 
-            <li class="active"><%=  link_to '測試總頁' , testruns_path %></li>
+            <li><%=  link_to '測試總頁' , testruns_path %></li>
             <li><%=  link_to '測試結果查詢' , :controller=> 'querys' ,:action=> 'index' %></li>
-            <li><%=  link_to '儀表板' , :controller=> 'boards' ,:action=> 'hello' %></li>
+            <li><%=  link_to '儀表板' %></li>
           </ul>
         </nav>
-        
+        <div class="col-md-12">
           <%= yield %>
-          
         </div>
       
 

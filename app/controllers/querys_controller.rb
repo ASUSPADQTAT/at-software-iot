@@ -1,11 +1,10 @@
 class QuerysController < ApplicationController
 
-
+  require 'csv'
   def index
     @apps = App.all
     @pkg = [] << ''
     @pkg += App.uniq.pluck(:AppPackageName)
-
 
     @class = [] << ''
     @class +=App.uniq.pluck(:AppClass)
@@ -16,8 +15,6 @@ class QuerysController < ApplicationController
 
     @manual_result = [] << ''
     @manual_result  += App.uniq.pluck(:TesterResult)
-
-
   end
 
 
@@ -63,23 +60,35 @@ class QuerysController < ApplicationController
       @ral = sql_array[0].end_with? "and "
       sql_array[0]= ( sql_array[0])[0..-5] if(@ral)
 
+
+      @sql_array = sql_array
       @apps = App.find_by_sql(sql_array)
   end
 
-
   def downloadcsv
+     @apps = params[:apps]
+     @sql_array = params[:sql_array]
 
-   @apps = params[:apps]
-  #  respond_to do |format|
-   #   format.csv { render text: @apps.to_csv }
-   # end
+
+     @query_apps = App.find_by_sql(@sql_array)
+
+     #@query_apps = App.where(:ApkResult => 'Pass' , :TesterResult => 'Fail')
+
+        respond_to do |format|
+          format.html {}
+          format.csv { render text: @query_apps.to_csv }
+          format.xls { send_data @query_apps.to_csv(col_sep: "\t") }
+
+        end
+
+
+
+
 
   end
 
-
-
   def show
-    @print_show =  params[:hello]
+
   end
 
   def create
@@ -98,9 +107,4 @@ class QuerysController < ApplicationController
   def hello
     @print_hello =  params[:hello]
   end
-
-
-
-
-
 end

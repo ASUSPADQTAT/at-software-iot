@@ -1,6 +1,4 @@
-<% @apps.each do |app| %>
-    <tr>
-      <%= render :partial =>'apps', :locals => {:app=> app} %>
+<%= debug(@apps) %>
+<%= debug(@sql_array) %>
+<%= debug(@query_apps) %>
 
-    </tr>
-<% end %>

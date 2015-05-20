@@ -1,0 +1,16 @@
+<table border="1">
+  <tr>
+
+    <th>Name</th>
+    <th>Result</th>
+
+  </tr>
+  <% @apps.each do |app| %>
+      <tr>
+
+        <td><%= app.AppName %></td>
+        <td><%= app.ApkResult %></td>
+
+      </tr>
+  <% end %>
+</table>

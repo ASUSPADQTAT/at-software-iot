@@ -1,7 +1,6 @@
 class TestrunAppsController < ApplicationController
 	skip_before_action :verify_authenticity_token
 
-
     def index
       sort_by =(params[:order] == 'AppNumber')? 'AppNumber' : 'created_at'
       @testrun = Testrun.find( params[:testrun_id])
@@ -28,10 +27,10 @@ class TestrunAppsController < ApplicationController
       respond_to do |format|
         format.html {}
         format.csv { render text: @apps.to_csv }
-      end
+        format.xls
+        end
 
     end
-
 
 
 
@@ -83,8 +82,7 @@ class TestrunAppsController < ApplicationController
     	redirect_to testrun_apps_url(@testrun)
     end
 
-
-  	protected
+  protected
   	def find_testrun
   		@testrun = Testrun.find( params[:testrun_id])
   	end

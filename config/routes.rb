@@ -1,20 +1,22 @@
 Rails.application.routes.draw do
   resources :testruns do
     resources :apps, :controller =>'testrun_apps' do
+      collection do
 
-    end
+      end
+
+      end
   end
 
 
   #resources :querys
-  get "querys" => "querys#index"
 
-  match ':controller(/:action(/:id(.:format)))', :via => :all
+
+  #match ':controller(/:action(/:id(.:format)))', :via => :all
   resources :querys do
     collection do
-      get :downloadcsv
       post :search
-
+      post :downloadcsv
     end
   end
 
