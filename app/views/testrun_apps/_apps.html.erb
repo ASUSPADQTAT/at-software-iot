@@ -4,10 +4,15 @@
   <span class="label label-info"> <%= app.AppCategory%></span>
 </td>
 <td>
+
+  <!--<div class="label label-success"><%= app.AppPackageName %></div>-->
+  <kbd> <%= app.AppPackageName %></kbd>
   <div><%= app.AppName %></div>
-  <div class="label label-success"><%= app.AppPackageName %></div>
 </td>
-<td><%= app.AppVersion %></td>
+<td>
+  <kbd>  <%= app.AppVersion %></kbd>
+
+</td>
 <td><%= app.AppNativeCode %></td>
 <td><%= app.ApkResult %></td>
 <td><%= app.AppInstallResult%></td>
