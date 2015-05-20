@@ -5,6 +5,14 @@ class TestrunsController < ApplicationController
 	def index
 		@testruns = Testrun.all
    # @app = App.find(1)
+
+
+    respond_to do |format|
+      format.html {}
+      format.json { render :json => @testruns.to_json }
+      format.xml { render :xml => @testruns.to_xml }
+
+    end
 	end
 
 	def new

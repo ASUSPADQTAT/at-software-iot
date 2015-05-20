@@ -27,6 +27,8 @@ class TestrunAppsController < ApplicationController
       respond_to do |format|
         format.html {}
         format.csv { render text: @apps.to_csv }
+        format.json { render :json => @apps.to_json }
+        format.xml { render :xml => @apps.to_xml }
         format.xls
         end
 
@@ -37,12 +39,22 @@ class TestrunAppsController < ApplicationController
     def show
       @testrun = Testrun.find(params[:testrun_id])
     	@app =@testrun.apps.find(params[:id])
+
+
+      respond_to do |format|
+        format.html {}
+        format.json { render :json => @app.to_json }
+        format.xml { render :xml => @app.to_xml }
+
+      end
     end
 
     def edit
       @testrun = Testrun.find(params[:testrun_id])
       @app = @testrun.apps.find(params[:id])
     end
+
+
 
 
     def new

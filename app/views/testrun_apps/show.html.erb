@@ -1,1 +1,77 @@
-<%= @app.AppName %>
+<%= link_to 'back index', testrun_apps_path %>
+<div class="col-md-12">
+  <table class="table table-striped">
+
+    <thread>
+      <tr>
+        <th>#</th>
+        <th>類別/分類</th>
+        <th>名稱</th>
+        <th>版本</th>
+        <th>NDK</th>
+        <th>總結果</th>
+        <th>安裝測試</th>
+        <th>啟動測試</th>
+        <th>猴子測試</th>
+
+        <th>複測</th>
+
+      </tr>
+    </thread>
+
+
+    <tbody>
+    <tr>
+    <% app=@app%>
+      <td><%= app.AppNumber %> <%= link_to image_tag("gp4.png"  , :width => 20 , :height => 20) , app.AppLink %></td>
+      <td>
+        <span class="label label-warning"><%= app.AppClass %></span>
+        <span class="label label-info"> <%= app.AppCategory%></span>
+      </td>
+      <td>
+        <div><%= app.AppName %></div>
+        <div class="label label-success"><%= app.AppPackageName %></div>
+      </td>
+      <td><%= app.AppVersion %></td>
+      <td><%= app.AppNativeCode %></td>
+      <td><%= app.ApkResult %></td>
+      <td><%= app.AppInstallResult%></td>
+      <td><%= app.AppLaunchResult %></td>
+      <td><%= app.AppMonkeyResult %></td>
+
+
+        <td>
+          <div class="pull-left">
+            <dl class="dl-horizontal ">
+              <dt class="pull-left">TTBugID</dt>
+              <dd><%= app.TTBugID %></dd>
+              <dt>BugZillaBugID</dt>
+              <dd><%= app.BugZillaBugID %></dd>
+              <dt>Tester</dt>
+              <dd><%= app.Tester %></dd>
+              <dt>TesterResult</dt>
+              <dd><%= app.TesterResult %></dd>
+              <dt>TesterComment</dt>
+              <dd><%= app.TesterComment %></dd>
+
+            </dl>
+
+          </div>
+
+        </td>
+
+
+
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+
+
+
+
